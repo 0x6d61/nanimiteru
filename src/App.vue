@@ -100,8 +100,4 @@ export default {
   display: inline-block;
   vertical-align: top;
 }
-/*.md-button.md-theme-default {
-  color: white;
-  background-color: #2BA1F2;
-}*/
 </style>
