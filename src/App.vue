@@ -94,7 +94,7 @@ export default {
     }
   },
   altImage: function() {
-    this.src = "https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg"
+    this.src = "img/error.jpg"
   }
 };
 </script>
