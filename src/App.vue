@@ -2,7 +2,9 @@
   <div id="app">
     <h1>今期は何見てる?</h1>
     <div v-if="lookingAnime.length">
-      <md-button class="md-accent md-raised" :href="tweet()">見てるアニメをツイート!</md-button>
+      <md-button class="md-accent md-raised" :href="tweet()"
+        >見てるアニメをツイート!</md-button
+      >
     </div>
     <div class="md-layout md-gutter">
       <div
@@ -14,7 +16,7 @@
           <template slot-scope="props">
             <md-card>
               <md-card-media md-ratio="16:9">
-                <img v-bind:src="props.img" />
+                <img v-lazy="checkUndefinedImage(props.img)" />
               </md-card-media>
               <md-card-area>
                 <md-card-header>
@@ -22,7 +24,9 @@
                 </md-card-header>
               </md-card-area>
               <md-card-actions>
-                <md-checkbox v-model="lookingAnime" v-bind:value="item.title">見てる</md-checkbox>
+                <md-checkbox v-model="lookingAnime" v-bind:value="item.title"
+                  >見てる</md-checkbox
+                >
               </md-card-actions>
             </md-card>
           </template>
@@ -57,7 +61,7 @@ export default {
     return {
       year: year,
       season: getSeason(month),
-      lookingAnime:[]
+      lookingAnime: []
     };
   },
   components: {
@@ -71,15 +75,26 @@ export default {
   },
 
   methods: {
-    fetchAnimeList() {
+    fetchAnimeList: function() {
       this.$store.dispatch("fetchAnimeList", {
         year: this.year,
         season: this.season
       });
     },
-    tweet() {
-      return `https://twitter.com/intent/tweet/?text=今期見ているアニメは%0A${this.lookingAnime.join("%0A")}`
+    tweet: function() {
+      return `https://twitter.com/intent/tweet/?text=今期見ているアニメは%0A${this.lookingAnime.join(
+        "%0A"
+      )}`;
+    },
+    checkUndefinedImage: function(img) {
+      if (undefined === img) {
+        return "https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg";
+      }
+      return img;
     }
+  },
+  altImage: function() {
+    this.src = "https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg"
   }
 };
 </script>
