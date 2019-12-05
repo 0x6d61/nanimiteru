@@ -4,7 +4,7 @@ import axios from "axios";
 
 const fetchAnimeList = async (year, season) => {
   const atnimeTitle = await axios.get(
-    `http://api.moemoe.tokyo/anime/v1/master/${year}/${season}`
+    `https://api.moemoe.tokyo/anime/v1/master/${year}/${season}`
   );
 
   return atnimeTitle.data.map(i => {
