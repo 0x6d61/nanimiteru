@@ -2,7 +2,7 @@
   <div id="app">
     <h1>今期は何見てる?</h1>
     <div v-if="lookingAnime.length">
-      <md-button :href="tweet()">見てるアニメをツイート!</md-button>
+      <md-button class="md-accent md-raised" :href="tweet()">見てるアニメをツイート!</md-button>
     </div>
     <div class="md-layout md-gutter">
       <div
@@ -100,4 +100,8 @@ export default {
   display: inline-block;
   vertical-align: top;
 }
+/*.md-button.md-theme-default {
+  color: white;
+  background-color: #2BA1F2;
+}*/
 </style>

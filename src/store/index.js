@@ -1,24 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
-//import cheerio from "cheerio";
-
-/*const fetchOgpImage = async url => {
-  let content;
-  try {
-    const html = await fetch(url, { mode: "cors" });
-    const $ = cheerio.load(html.data);
-    $("head meta").each((i, el) => {
-      const property = $(el).attr("property");
-      if (property === "og:image") {
-        content = $(el).attr("content");
-      }
-    });
-  } catch (error) {
-    return console.log("error");
-  }
-  return content;
-};*/
 
 const fetchAnimeList = async (year, season) => {
   const atnimeTitle = await axios.get(
