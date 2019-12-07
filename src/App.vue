@@ -82,9 +82,7 @@ export default {
       });
     },
     tweet: function() {
-      return `https://twitter.com/intent/tweet/?text=今期見ているアニメは%0A${this.lookingAnime.join(
-        "%0A"
-      )}`;
+      return `https://twitter.com/intent/tweet/?text=今期見ているアニメは%0A${this.lookingAnime.join("%0A")}%0Ahttps://0x6d61.github.io/nanimiteru/`;
     },
     checkUndefinedImage: function(img) {
       if (undefined === img) {
